@@ -1,0 +1,38 @@
+{
+  "name": "markocupic/contao-newsletter-bundle",
+  "type": "contao-bundle",
+  "description": "Contao 4 Contao Newsletter Bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marko Cupic",
+      "homepage": "https://github.com/markocupic"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "symfony/framework-bundle": "^3.3",
+    "contao/core-bundle": "^4.4",
+    "require": {
+      "codefog/contao-haste": "^4"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Markocupic\\ContaoNewsletterBundle\\": "src/"
+    },
+    "classmap": [
+      "src/Resources/contao"
+    ],
+    "exclude-from-classmap": [
+      "src/Resources/contao/assets",
+      "src/Resources/contao/config",
+      "src/Resources/contao/dca",
+      "src/Resources/contao/languages",
+      "src/Resources/contao/templates"
+    ]
+  },
+  "extra": {
+    "contao-manager-plugin": "Markocupic\\ContaoNewsletterBundle\\ContaoManager\\Plugin"
+  }
+}

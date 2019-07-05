@@ -1,0 +1,69 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<a href="{{link_url::bericht-anlegen}}" title="Bericht anlegen">Bericht anlegen</a>
+{{br}}{{br}}
+
+<div id="filterSectionBar">
+  <form id="filterBerichtForm" action="" method="GET">
+    <select name="filter-region" class="filter-region">
+        <?= $this->options ?>
+    </select>
+    <input type="submit" value="Senden" style="display:none">
+  </form>
+</div>
+{{br}}
+{{br}}
+<?php if($this->hasItems): ?>
+  <div class="ce_table">
+    <table class="table sortable-table" id="berichtTable">
+      <thead>
+      <tr>
+        <th class="col_first header header-pruefungsdatum">Datum</th>
+        <th class="col_1 header header-pruefungsbezirk">Pr&uuml;fungsbezirk</th>
+        <th class="col_2 header header-titel ">Titel</th>
+        <th class="col_last header header-link sorter-false" data-sorter="false"></th>
+      </tr>
+      </thead>
+        <?php if ($this->rows): ?>
+          <tbody>
+          <?php foreach ($this->rows as $row): ?>
+            <tr>
+              <td class="col_first cell-pruefungsdatum"><?= Contao\Date::parse('Y-m-d', $row['pruefungsdatum']) ?></td>
+              <td class="col_1 cell-pruefungsbezirk"><?= $GLOBALS['TL_LANG']['BEZIRKE'][$row['pruefungsbezirk']] ?></td>
+              <td class="col_2 cell-titel"><?= $row['titel'] ?></td>
+              <td class="col_last cell-link"> <?php if ($row['link']): ?><a href="<?= $row['link'] ?>">Bericht ansehen</a><?php endif; ?></td>
+            </tr>
+          <?php endforeach; ?>
+          </tbody>
+        <?php endif; ?>
+    </table>
+  </div>
+
+  <?php if($this->hasPagination): ?>
+  <?= $this->pagination ?>
+  <?php endif; ?>
+
+  <script src="assets/tablesorter/js/tablesorter.min.js"></script>
+  <script>
+      $().ready(function () {
+          // Submit form onchange
+          $('#filterBerichtForm .filter-region').change(function () {
+              $(this).closest('form').submit();
+          });
+          // Init sortable table
+          $('#berichtTable.sortable-table').tablesorter({ headers: {3: {sorter: false} } });
+      });
+  </script>
+<?php endif; ?>
+
+<?php if(!$this->hasItems): ?>
+<p>Keine Berichte gefunden.</p>
+<?php endif; ?>
+
+
+
+
+
+<?php $this->endblock(); ?>

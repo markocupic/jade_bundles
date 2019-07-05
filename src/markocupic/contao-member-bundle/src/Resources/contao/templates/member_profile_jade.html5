@@ -1,0 +1,123 @@
+<!-- indexer::stop -->
+<div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+
+    <?php if ($this->headline): ?>
+    <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
+    <?php endif; ?>
+
+    <form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> method="<?= $this->method ?>" enctype="<?= $this->enctype ?>"<?= $this->attributes ?><?= $this->novalidate ?>>
+        <div class="formbody krd_form">
+            <?php if ($this->method != 'get'): ?>
+            <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formId ?>">
+            <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+            <?php if ($this->maxFileSize): ?>
+            <input type="hidden" name="MAX_FILE_SIZE" value="<?= $this->maxFileSize ?>">
+            <?php endif; ?>
+            <?php endif; ?>
+
+            <h3>Name / Anschrift</h3>
+            <hr>
+            <div class="fields row">
+
+                <?php $field = 'ffm_partner_cat'; ?>
+                <?php if ($this->form->hasFormField($field)): ?>
+                <div class="widget-<?= $field ?>">
+                    <?= $this->form->getWidget('gender')->parse(); ?>
+                </div>
+                <?php endif; ?>
+
+                <?php if ($this->form->hasFormField('gender')): ?>
+                <div class="col-md-4"><?= $this->form->getWidget('gender')->parse(); ?></div>
+                <?php endif; ?>
+
+                <?php if ($this->form->hasFormField('firstname')): ?>
+                <div class="col-md-4"><?= $this->form->getWidget('firstname')->parse(); ?></div>
+                <?php endif; ?>
+
+                <?php if ($this->form->hasFormField('lastname')): ?>
+                <div class="col-md-4"><?= $this->form->getWidget('lastname')->parse(); ?></div>
+                <?php endif; ?>
+
+                <?php if ($this->form->hasFormField('street')): ?>
+                <div class="col-md-4"><?= $this->form->getWidget('street')->parse(); ?></div>
+                <?php endif; ?>
+
+                <?php if ($this->form->hasFormField('postal')): ?>
+                <div class="col-md-4"><?= $this->form->getWidget('postal')->parse(); ?></div>
+                <?php endif; ?>
+
+                <?php if ($this->form->hasFormField('city')): ?>
+                <div class="col-md-4"><?= $this->form->getWidget('city')->parse(); ?></div>
+                <?php endif; ?>
+
+                <?php if ($this->form->hasFormField('bundesland')): ?>
+                <div class="col-md-12"><?= $this->form->getWidget('bundesland')->parse(); ?></div>
+                <?php endif; ?>
+
+                <?php if ($this->form->hasFormField('groups')): ?>
+                <div class="col-md-12"><?= $this->form->getWidget('groups')->parse(); ?></div>
+                <?php endif; ?>
+            </div>
+            <h3>Kontaktdaten</h3>
+            <div class="fields row">
+                <?php if ($this->form->hasFormField('email')): ?>
+                <div class="col-md-4"><?= $this->form->getWidget('email')->parse(); ?></div>
+                <?php endif; ?>
+            </div>
+
+            <hr>
+            <h3>Über mich</h3>
+            <hr>
+            <?php if ($this->form->hasFormField('kurzportrait')): ?>
+            <?= $this->form->getWidget('kurzportrait')->parse(); ?>
+            <?php endif; ?>
+            {{br}}
+
+            <?php if ($this->form->hasFormField('statusDerWeiterbildung')): ?>
+            <?= $this->form->getWidget('statusDerWeiterbildung')->parse(); ?>
+            <?php endif; ?>
+            {{br}}
+
+            <div class="fields row">
+                <div class="col-md-6">
+
+
+                </div>
+                <div class="col-md-6">
+                    <?php if ($this->form->hasFormField('avatar')): ?>
+                    <?= $this->form->getWidget('avatar')->parse(); ?>
+                    <?php endif; ?>
+                    <?php if(FE_USER_LOGGED_IN): ?>
+                    {{image::<?= Markocupic\ContaoMemberBundle\Avatar::getAvatarUuid($this->User->id) ?>?width=200&height=150}}
+                    <?php endif; ?>
+
+                    <hr>
+                    <?php if ($this->form->hasFormField('aufmerksamGewordenDurch')): ?>
+                    <?= $this->form->getWidget('aufmerksamGewordenDurch')->parse(); ?>
+                    <?php endif; ?>
+                    <hr>
+
+                </div>
+            </div>
+
+            <!-- invisible honeypot -->
+            <?php if ($this->form->hasFormField('captcha')): ?>
+            <?= $this->form->getWidget('captcha')->parse(); ?>
+            <?php endif; ?>
+
+            <hr>
+            <?php if ($this->form->hasFormField('submit')): ?>
+            <?= $this->form->getWidget('submit')->parse(); ?>
+            <?php endif; ?>
+        </div>
+    </form>
+
+</div>
+<!-- indexer::continue -->
+
+
+
+
+
+
+

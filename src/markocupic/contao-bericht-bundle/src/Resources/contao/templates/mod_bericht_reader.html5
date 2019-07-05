@@ -1,0 +1,45 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<a href="{{link_url::berichte}}" title="zur&uuml;ck zur Liste">zurück zur Liste</a>
+
+<div id="berichtDetailSection">
+  <div class="bericht-titel">
+    <h2 class="ce_hedline"><?= $this->titel ?></h2>
+  </div>
+
+  <div class="bericht-datum">
+    <h3 class="ce_hedline">Pr&uuml;fungsdatum</h3>
+    <time datetime="<?= Contao\Date::parse('Y-m-d', $this->pruefungsdatum) ?>"><?= Contao\Date::parse('Y-m-d', $this->pruefungsdatum) ?></time>
+  </div>
+
+  <div class="bericht-author">
+    <h3 class="ce_hedline">Autor des Berichts</h3>
+    <span class="firstname"><?= $this->autorFirstname ?></span> <span class="lastname"><?= $this->autorLastname ?></span>
+  </div>
+
+  <div class="bericht-text">
+    <h3 class="ce_hedline">Bericht</h3>
+    <?= $this->bericht ?>
+  </div>
+
+</div>
+
+<a href="{{link_url::berichte}}" title="zur&uuml;ck zur Liste">zurück zur Liste</a>
+
+
+<script src="assets/tablesorter/js/tablesorter.min.js"></script>
+<script>
+    $().ready(function () {
+        // Submit form onchange
+        $('#filterBerichtForm .filter-region').change(function () {
+            $(this).closest('form').submit();
+        });
+        // Init sortable table
+        $('#berichtTable.sortable-table').tablesorter({ headers: {3: {sorter: false} } });
+    });
+</script>
+
+
+<?php $this->endblock(); ?>

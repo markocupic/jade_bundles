@@ -1,0 +1,46 @@
+<!-- indexer::stop -->
+<div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+
+    <?php if ($this->headline): ?>
+  <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
+<?php endif; ?>
+
+<?php if ($this->message): ?>
+  <p class="tl_confirm"><?= $this->message ?></p>
+<?php endif; ?>
+
+<form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> id="<?= $this->formId ?>" method="post" enctype="<?= $this->enctype ?>">
+  <div class="formbody">
+    <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formId ?>">
+    <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+    <div class="fields">
+        <?= $this->personal['gender'] ?>
+        <?= $this->personal['firstname'] ?>
+        <?= $this->personal['lastname'] ?>
+        <?= $this->personal['dateOfBirth'] ?>
+        <?= $this->address['street'] ?>
+        <?= $this->address['postal'] ?>
+        <?= $this->address['city'] ?>
+        <?= $this->address['bundesland'] ?>
+        <?= $this->address['country'] ?>
+      <hr>
+        <?= $this->login['groups'] ?>
+      <hr>
+        <?= $this->personal['kurzportrait'] ?>
+        <?= $this->personal['statusDerWeiterbildung'] ?>
+        <?= $this->personal['aufmerksamGewordenDurch'] ?>
+      <hr>
+        <?= $this->contact['phone'] ?>
+        <?= $this->contact['email'] ?>
+        <?= $this->login['password'] ?>
+
+        <?= $this->captcha ?>
+    </div>
+    <div class="widget widget-submit">
+      <button type="submit" class="submit"><?= $this->slabel ?></button>
+    </div>
+  </div>
+</form>
+
+</div>
+<!-- indexer::continue -->

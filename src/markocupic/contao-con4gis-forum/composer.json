@@ -1,0 +1,36 @@
+{
+  "name": "markocupic/contao-con4gis-forum-bundle",
+  "type": "contao-module",
+  "description": "Contao 4 Contao Bericht Bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marko Cupic",
+      "homepage": "https://github.com/markocupic"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "symfony/framework-bundle": "^3.3",
+    "contao/core-bundle": "^4.4",
+    "terminal42/notification_center": "^1.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Markocupic\\ContaoCon4gisForumBundle\\": "src/"
+    },
+    "classmap": [
+      "src/Resources/contao"
+    ],
+    "exclude-from-classmap": [
+      "src/Resources/contao/assets",
+      "src/Resources/contao/config",
+      "src/Resources/contao/dca",
+      "src/Resources/contao/languages",
+      "src/Resources/contao/templates"
+    ]
+  },
+  "extra": {
+    "contao-manager-plugin": "Markocupic\\ContaoCon4gisForumBundle\\ContaoManager\\Plugin"
+  }
+}
