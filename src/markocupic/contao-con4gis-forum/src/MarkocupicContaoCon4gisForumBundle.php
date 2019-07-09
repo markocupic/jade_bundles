@@ -2,6 +2,7 @@
 /**
  * PHP version 5
  *
+ * LICENSE: For commercial usage only,
  * Bundle created for Leif Braun, kreadea.de
  *
  *
