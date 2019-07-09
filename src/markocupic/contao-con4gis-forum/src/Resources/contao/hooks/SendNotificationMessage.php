@@ -42,8 +42,10 @@ class SendNotificationMessage
      */
     public function sendNotificationMessage($objMessage, &$cpTokens, &$cpLanguage, $objGatewayModel)
     {
+
         if (TL_MODE == 'FE' && FE_USER_LOGGED_IN)
         {
+
             $arrAllowed = array(
                 'sub_new_thread',
                 'sub_deleted_thread',
@@ -74,7 +76,8 @@ class SendNotificationMessage
                     $arrMember = $objMember->row();
                     foreach ($arrMember as $k => $v)
                     {
-                        if ($k === 'password')
+                        // !important do not overwrite $cpTokens['user_email']
+                        if ($k === 'password' || $k === 'email')
                         {
                             continue;
                         }
@@ -116,6 +119,7 @@ class SendNotificationMessage
                 }
             }
         }
+
         // Return true, though the message will be sent
         return true;
     }
