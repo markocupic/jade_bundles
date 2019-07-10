@@ -30,7 +30,7 @@ class SendNotificationMessage
      * sendNotificationMessage hook registered in src\Resources\contao\config\config.php
      *
      * Enrich token array with some more information about
-     * the logged in user and
+     * the logged in user/author and
      * post information
      * @see tags in src\Resources\contao\config\config.php
      *
@@ -67,7 +67,7 @@ class SendNotificationMessage
 
 
 
-                // Get logged in user.
+                // Get logged in user/author of post.
                 $objUser = FrontendUser::getInstance();
                 $objMember = MemberModel::findByPk($objUser->id);
                 if ($objMember !== null)
@@ -76,12 +76,11 @@ class SendNotificationMessage
                     $arrMember = $objMember->row();
                     foreach ($arrMember as $k => $v)
                     {
-                        // !important do not overwrite $cpTokens['user_email']
-                        if ($k === 'password' || $k === 'email')
+                        if ($k === 'password')
                         {
                             continue;
                         }
-                        $cpTokens['user_' . $k] = $v;
+                        $cpTokens['author_' . $k] = $v;
                     }
                 }
 

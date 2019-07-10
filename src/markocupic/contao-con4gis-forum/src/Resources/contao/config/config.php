@@ -27,21 +27,21 @@ if (TL_MODE === 'BE')
     foreach ($arrAllowed as $k)
     {
         // Logged in user data
-        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_subject'][] = 'user_*';
-        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_subject'][] = 'user_firstname';
-        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_subject'][] = 'user_lastname';
+        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_subject'][] = 'author_*';
+        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_subject'][] = 'author_firstname';
+        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_subject'][] = 'author_lastname';
 
-        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_text'][] = 'user_*';
-        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_text'][] = 'user_firstname';
-        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_text'][] = 'user_lastname';
+        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_text'][] = 'author_*';
+        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_text'][] = 'author_firstname';
+        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_text'][] = 'author_lastname';
 
-        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_html'][] = 'user_*';
-        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_html'][] = 'user_firstname';
-        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_html'][] = 'user_lastname';
+        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_html'][] = 'author_*';
+        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_html'][] = 'author_firstname';
+        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_html'][] = 'author_lastname';
 
-        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_sender_name'][] = 'user_*';
-        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_sender_name'][] = 'user_firstname';
-        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_sender_name'][] = 'user_lastname';
+        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_sender_name'][] = 'author_*';
+        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_sender_name'][] = 'author_firstname';
+        $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_sender_name'][] = 'author_lastname';
 
         // post data
         $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['con4gis Forum'][$k]['email_subject'][] = 'post_*';
